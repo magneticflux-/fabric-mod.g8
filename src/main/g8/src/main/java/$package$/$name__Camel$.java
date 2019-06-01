@@ -1,8 +1,8 @@
-package net.fabricmc.example;
+package $package$;
 
 import net.fabricmc.api.ModInitializer;
 
-public class $name__Camel$ implements ModInitializer {
+public class $name;format="Camel"$ implements ModInitializer {
     public static final String MODID = "$modid$";
 
     @Override

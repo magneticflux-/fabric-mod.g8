@@ -111,7 +111,7 @@ curseforge {
     apiKey = project.curseApiKey
 
     project {
-        id = "$curseforge_id$"
+        id = project.curseforge_id
         releaseType = "alpha"
         addGameVersion "1.14.2"
         mainArtifact(remapJar.jar) {
@@ -129,6 +129,6 @@ curseforge {
 afterEvaluate {
     // CurseGradle generates tasks in afterEvaluate for each project
     // There isn't really any other way to make it depend on a task unless it is an AbstractArchiveTask
-    tasks.curseforge$curseforge_id$.dependsOn publish
-    tasks.curseforge$curseforge_id$.dependsOn remapJar
+    tasks.getByName("curseforge${project.curseforge_id}").dependsOn publish
+    tasks.getByName("curseforge${project.curseforge_id}").dependsOn remapJar
 }

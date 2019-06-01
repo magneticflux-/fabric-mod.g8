@@ -1,30 +1,27 @@
 {
   "schemaVersion": 1,
   "id": "$modid$",
-  "version": "${version}",
+  "version": "\${version}",
   "name": "$name$",
-  "description": "$description$",
+  "description": "$mod_description$",
   "authors": [
-    "Me!"
+    "$author$"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "$homepage$",
+    "sources": "$sources$"
   },
-
   "license": "CC0-1.0",
   "icon": "assets/$modid$/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
-      "$package$.ExampleMod"
+      "$package$.$name;format="Camel"$"
     ]
   },
   "mixins": [
     "$modid$.mixins.json"
   ],
-
   "depends": {
     "fabricloader": ">=0.4.0",
     "fabric": "*"

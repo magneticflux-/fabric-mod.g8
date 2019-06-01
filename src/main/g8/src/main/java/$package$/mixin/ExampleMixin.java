@@ -1,4 +1,4 @@
-package net.fabricmc.example.mixin;
+package $package$.mixin;
 
 import net.minecraft.client.MinecraftClient;
 
