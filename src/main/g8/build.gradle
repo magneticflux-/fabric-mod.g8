@@ -2,10 +2,15 @@ plugins {
     id "java"
     id "idea"
     id "maven-publish"
-    id "fabric-loom" version "0.2.4-SNAPSHOT"
+    id "fabric-loom" version "0.2.5-SNAPSHOT"
     id "com.github.ben-manes.versions" version "0.21.0"
     id "com.github.johnrengelman.shadow" version "5.0.0"
     id "com.matthewprenger.cursegradle" version "1.2.0"
+}
+
+configurations {
+    shaded
+    implementation.extendsFrom shaded
 }
 
 repositories {
@@ -72,20 +77,21 @@ jar {
 
 // Configure shadowing
 shadowJar {
-    // Needed to override the jar output and be used by Loom's remapJar
-    // Loom sets the jar classifier to dev and uses the default classifier for the output
-    archiveClassifier.set("dev")
-    configurations = [project.configurations.shadow]
+    configurations = [project.configurations.shaded]
     //relocate "some.library", "my.mod.shadowed.some.library"
 }
-jar.finalizedBy shadowJar
+
+remapJar {
+    dependsOn shadowJar
+    input = shadowJar.archiveFile
+}
 
 // configure the maven publication
 publishing {
     publications {
         mavenJava(MavenPublication) {
             // add all the jars that should be included when publishing to maven
-            artifact(jar) {
+            artifact(remapJar) {
                 builtBy remapJar
             }
             artifact(sourcesJar) {
