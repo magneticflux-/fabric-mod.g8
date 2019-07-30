@@ -110,7 +110,10 @@ publishing {
 // Configure CurseForge publishing
 curseforge {
     // Stored in ~/.gradle/gradle.properties
-    apiKey = project.curseApiKey
+    if (project.hasProperty("curseApiKey"))
+        apiKey = project.curseApiKey
+    else
+        println "No CurseForge API key found, 'curseforge' tasks will not work"
 
     project {
         id = project.curseforge_id
