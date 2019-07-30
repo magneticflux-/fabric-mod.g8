@@ -1,5 +1,7 @@
 A [Giter8][g8] template for a Fabric Mod!
 
+To use, just run `g8 magneticflux-/fabric-mod.g8` and follow the directions.
+
 Template license
 ----------------
 Written in 2019 by Mitchell Skaggs <skaggsm333@gmail.com>
