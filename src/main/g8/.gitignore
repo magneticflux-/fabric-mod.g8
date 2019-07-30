@@ -178,3 +178,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Fabric and Loom .minecraft folder
+run/
+
