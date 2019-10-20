@@ -180,4 +180,5 @@ Temporary Items
 
 # Fabric and Loom .minecraft folder
 run/
-
+Minecraft_Client.xml
+Minecraft_Server.xml
